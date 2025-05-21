@@ -1,26 +1,33 @@
 [project]
 name = "privacy-assessment-agent"
 version = "0.1.0"
-description = "An AI agent to assess privacy policies against regulations."
+description = "An AI agent to assess privacy policies against regulations and principles using Google's Gemini models."
 authors = [
-    {name = "User", email = "user@example.com"}, # Placeholder
+    {name = "CV Subramanian", email = "cvsubs74@gmail.com"},
 ]
 dependencies = [
-    "google-adk",
-    "google-generativeai",
-    "requests",
-    "beautifulsoup4",
-    "python-dotenv",
+    "google-adk>=0.5.0",
+    "google-generativeai>=1.9.0",
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "python-dotenv>=1.0.0",
 ]
 requires-python = ">=3.9"
 
 [project.optional-dependencies]
 dev = [
-    "pytest",
+    "pytest>=8.0.0",
+    "google-adk[eval]>=0.5.0",
+]
+deployment = [
+    "google-cloud-aiplatform[agent_engines]>=1.93.0",
+    "vertexai>=1.0.0",
+    "absl-py>=2.2.1",
 ]
 
 [project.urls]
-Homepage = "https://example.com/privacy_agent" # Placeholder
+Homepage = "https://github.com/cvsubs74/privacy-agent"
+Repository = "https://github.com/cvsubs74/privacy-agent"
 
 [build-system]
 requires = ["setuptools>=61.0"]
@@ -28,4 +35,4 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["privacy_agent*"] # Will find the 'privacy_agent' package directory
+include = ["privacy_agent*", "deployment*"]
